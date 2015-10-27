@@ -444,7 +444,7 @@ class Response {
 		}
 
 		if ($this->m_tagStack === array("RESPONSE", "RESULT", "ERRORS", "ERROR")) {
-			$this->m_errors[] = new Error($this->m_lastErrorCode, $data);
+			$this->m_errors[] = new CardEaseError($this->m_lastErrorCode, $data);
 			return;
 		}
 

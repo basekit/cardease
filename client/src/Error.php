@@ -8,7 +8,7 @@ require_once("ErrorCode.php");
  * 
  * @author CreditCall Communications
  */
-class Error {
+class CardEaseError {
 
 	/**
 	 * The error code associated with this error.
