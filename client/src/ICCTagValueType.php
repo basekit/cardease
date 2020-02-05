@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * The format of the ICC value data is ASCII Hex. For example, FF00.
  */

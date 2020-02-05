@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * The format of the value data is ASCII Hex. For example, FF00.
  */

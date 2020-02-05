@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * Internal use to indicate no void reason is known.
  */

@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * A URL and associated attributes that can be used for processing CardEaseXML
  * requests. At least one of these needs to be supplied to the Client for processing to take place.

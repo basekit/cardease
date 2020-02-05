@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * The amount is in major units.
  */

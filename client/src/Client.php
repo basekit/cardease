@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * @mainpage
  * <p><img src="creditcall.gif" alt="CreditCall">

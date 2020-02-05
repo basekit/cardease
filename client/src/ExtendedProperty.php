@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * A class to hold extended property information.
  * <p>

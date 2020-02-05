@@ -1,13 +1,6 @@
 <?php
 
-require_once("CertificationAuthority.php");
-require_once("Error.php");
-require_once("ErrorCode.php");
-require_once("ICCTag.php");
-require_once("ICCTagValueType.php");
-require_once("PublicKey.php");
-require_once("ResultCode.php");
-require_once("VerificationResult.php");
+namespace Brucimus83;
 
 
 /**

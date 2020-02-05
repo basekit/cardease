@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83\Internal;
+
 /**
  * A utility class the helps with the construction of XML data.
  * 

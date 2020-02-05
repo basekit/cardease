@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * A class used to hold email address information.
  * <p>

@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * The product has very low risk.
  */

@@ -1,10 +1,14 @@
 {
-    "name": "basekit/cardease",
+    "name": "brucimus83/cardease",
     "description": "Fork of the CardEase library to fix PHP 7 compatibility issues",
     "authors": [
         {
             "name": "Mark Jeffries",
             "email": "mark.jeffries@basekit.com"
+        },
+        {
+            "name": "Chris Russell",
+            "email": "crussell.design@gmail.com"
         }
     ],
     "autoload": {

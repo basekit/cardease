@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * An authorisation request. This is a request for payment. This can include
  * manual, magnetic stripe and EMV transactions.

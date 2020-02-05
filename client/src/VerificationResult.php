@@ -1,5 +1,7 @@
 <?php
 
+namespace Brucimus83;
+
 /**
  * The verification result is unknown.
  */

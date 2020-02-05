@@ -1,23 +1,6 @@
 <?php
 
-require_once("Address.php");
-require_once("AmountUnit.php");
-require_once("EmailAddress.php");
-require_once("EmailAddressType.php");
-require_once("ExtendedProperty.php");
-require_once("IAVFormat.php");
-require_once("ICCTag.php");
-require_once("ICCTagValueType.php");
-require_once("Name.php");
-require_once("PhoneNumber.php");
-require_once("PhoneNumberType.php");
-require_once("Product.php");
-require_once("ProductRisk.php");
-require_once("RequestType.php");
-require_once("ThreeDSecureCardHolderEnrolled.php");
-require_once("ThreeDSecureTransactionStatus.php");
-require_once("VoidReason.php");
-require_once("XIDFormat.php");
+namespace Brucimus83;
 
 if (!defined("TERMINALID_LENGTH")) define("TERMINALID_LENGTH", 8);
 

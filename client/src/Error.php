@@ -1,6 +1,6 @@
 <?php
 
-require_once("ErrorCode.php");
+namespace Brucimus83;
 
 /**
  * An error that can be returned as the result of a CardEaseXML request in a CardEase response. Contains
