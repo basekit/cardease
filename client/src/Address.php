@@ -53,7 +53,7 @@ class Address {
 	 * @param country The country of the address.
 	 * @param zipCode The post/zip code of the address.
 	 */
-	function Address(
+	function __construct(
 		$recipient = array(),
 		$lines = array(),
 		$city = null, 

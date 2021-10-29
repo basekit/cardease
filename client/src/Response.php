@@ -293,7 +293,7 @@ class Response {
 	/**
 	 * Constructs a new response and initialises all variables.
 	 */
-	function Response()
+	function __construct()
 	{
 		$this->m_addressResponseData = null;
 		$this->m_addressResult = VerificationResult_Empty;
@@ -477,7 +477,7 @@ class Response {
 			$this->m_originatingIPAddressRegion = $data;
 			return;
 		}
-		
+
 		if ($this->m_tagStack === array("RESPONSE", "TRANSACTIONDETAILS", "GEOIP", "ZIPCODE")) {
 			$this->m_originatingIPAddressZipCode = $data;
 			return;
@@ -631,7 +631,7 @@ class Response {
 			}		
 			return;
 		}
-		
+
 		if ($this->m_tagStack === array("RESPONSE", "TRANSACTIONDETAILS", "GEOIP", "CONTINENT")) {
 			$this->m_originatingIPAddressContinentAlpha2 = $attrs["ALPHA2"];
 			return;

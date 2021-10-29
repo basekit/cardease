@@ -25,7 +25,7 @@ class ExtendedProperty {
 	 * @param name The name of the extended property
 	 * @param value The value of the extended property
 	 */
-	function ExtendedProperty($name, $value) {
+	function __construct($name, $value) {
 		$this->m_name = $name;
 		$this->m_value = $value;
 	}

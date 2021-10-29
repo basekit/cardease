@@ -42,7 +42,7 @@ class ICCTag {
 	 *	If only two arguments to this function are found the second is taken to be the value: ICCTag(id, value).
 	 *	If three arguments are found the second is taken as being the type, the third the value: ICCTag(id, type, value).
 	 */
-	function ICCTag($id, $type_or_value) {
+	function __construct($id, $type_or_value) {
 
 		$this->m_id = $id;
 

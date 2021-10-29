@@ -27,7 +27,7 @@ class PhoneNumber {
 	 * @param number The phone number
 	 * @param type The type of the phone number.
 	 */
-	function PhoneNumber($number, $type) {
+	function __construct($number, $type) {
 		$this->m_number = $number;
 		$this->m_type = $type;		
 	}

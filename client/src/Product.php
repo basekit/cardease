@@ -81,7 +81,7 @@ class Product {
 	 * @param risk The risk of the product.
 	 * @param type The type of the product.
 	 */
-	function Product(
+	function __construct(
 		$amount,
 		$amountUnit,
 		$category,

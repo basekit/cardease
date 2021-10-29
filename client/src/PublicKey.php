@@ -69,7 +69,7 @@ class PublicKey {
 	 *	If null no hash algorithm is set.
 	 * @private
 	 */
-	function PublicKey(
+	function __construct(
 		$index,
 		$hash,
 		$hashAlgorithm) {

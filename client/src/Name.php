@@ -39,7 +39,7 @@ class Name {
 	 * @param initials The initials of the persion.
 	 * @param lastName The last name of the persion.
 	 */
-	function Name(
+	function __construct(
 		$title = null, 
 		$firstName = null, 
 		$initials = null, 

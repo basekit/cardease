@@ -35,7 +35,7 @@ class CertificationAuthority {
 	 *	null no registered identity is set.
 	 * @private
 	 */
-	function CertificationAuthority($description, $rid) {
+	function __construct($description, $rid) {
 		$this->m_description = $description;
 		$this->m_rid = $rid;
 		$this->m_publicKeys = array();

@@ -27,7 +27,7 @@ class EmailAddress {
 	 * @param address The email address.
 	 * @param type The type of the email address.
 	 */
-	function EmailAddress($address, $type) {
+	function __construct($address, $type) {
 		$this->m_address = $address;
 		$this->m_type = $type;		
 	}

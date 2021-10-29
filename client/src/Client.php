@@ -181,7 +181,7 @@ class Client
 	/**
 	 * Constructs a Client and initialises variables.
 	 */
-	function Client() {
+	function __construct() {
 		$this->m_serverURLs = array();
 		$this->m_proxyHost = null;
 		$this->m_proxyPassword = null;
