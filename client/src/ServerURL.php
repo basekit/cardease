@@ -33,7 +33,7 @@ class ServerURL
 	 *	If zero is specified an infinite timeout is used.
 	 *	For most requests a timeout of 45 seconds (45000) is recommended.
 	 */
-	function ServerURL($url, $timeout) {
+	function __construct($url, $timeout) {
 		if ($timeout < 30000) {
 			trigger_error("CardEaseXMLCommunication: Timeout cannot be less than 30 seconds", E_USER_ERROR);
 		}

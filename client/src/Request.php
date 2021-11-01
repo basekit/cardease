@@ -731,17 +731,17 @@ class CardEaseXML_Request {
 			($this->m_deliveryPhoneNumbers !== null && count($this->m_deliveryPhoneNumbers) !== 0))
 		{			
 			$writer->writeStartElement("Delivery");
-		
+
 			if ($this->m_deliveryAddress !== null && !$this->m_deliveryAddress->isEmpty())
 			{
 				$writer->writeStartElement("Address");
-				
+
 				$writer->writeAttributeString("format", "standard");
-				
+
 				if ($this->m_deliveryAddress->getRecipient() !== null)
 				{					
 					$recipient = $this->m_deliveryAddress->getRecipient();
-				
+
 					for ($id = 0; $id < count($recipient); $id++)
 					{
 						$writer->writeStartElement("Recipient");
@@ -749,14 +749,14 @@ class CardEaseXML_Request {
 						$writer->writeString($recipient[$id]);
 						$writer->writeEndElement(); // Recipient
 					}
-					
+
 					unset($recipient);
 				}
-				
+
 				if ($this->m_deliveryAddress->getLines() !== null)
 				{					
 					$lines = $this->m_deliveryAddress->getLines();
-				
+
 					for ($id = 0; $id < count($lines); $id++)
 					{
 						$writer->writeStartElement("Line");
@@ -764,110 +764,110 @@ class CardEaseXML_Request {
 						$writer->writeString($lines[$id]);
 						$writer->writeEndElement(); // Line
 					}
-					
+
 					unset($lines);
 				}
-				
+
 				if ($this->m_deliveryAddress->getCity() !== null)
 				{
 					$writer->writeElementString("City", $this->m_deliveryAddress->getCity());
 				}
-				
+
 				if ($this->m_deliveryAddress->getState() !== null)
 				{
 					$writer->writeElementString("State", $this->m_deliveryAddress->getState());
 				}
-				
+
 				if ($this->m_deliveryAddress->getZipCode() !== null)
 				{
 					$writer->writeElementString("ZipCode", $this->m_deliveryAddress->getZipCode());
 				}
-				
+
 				if ($this->m_deliveryAddress->getCountry() !== null)
 				{
 					$writer->writeElementString("Country", $this->m_deliveryAddress->getCountry());
 				}
-				
+
 				$writer->writeEndElement(); // Address
 			}
-			
+
 			// DeliveryName
 			if (($this->m_deliveryEmailAddresses !== null && count($this->m_deliveryEmailAddresses) !== 0) ||
 				($this->m_deliveryName !== null && !$this->m_deliveryName->isEmpty()) ||
 				($this->m_deliveryPhoneNumbers !== null && count($this->m_deliveryPhoneNumbers) !== 0))
 			{				
 				$writer->writeStartElement("Contact");
-				
+
 				if ($this->m_deliveryEmailAddresses !== null && count($this->m_deliveryEmailAddresses) !== 0)
 				{					
 					$writer->writeStartElement("EmailAddressList");
-					
+
 					for ($id = 0; $id < count($this->m_deliveryEmailAddresses); $id++)
 					{						
 						$emailAddress = $this->m_deliveryEmailAddresses[$id];
-					
+
 						$writer->writeStartElement("EmailAddress");
 						$writer->writeAttributeString("id", $id + 1);
 						$writer->writeAttributeString("type", $emailAddress->getType());
 						$writer->writeString($emailAddress->getAddress());
 						$writer->writeEndElement(); // EmailAddress
-						
+
 						unset($emailAddress);
 					}
-					
+
 					$writer->writeEndElement(); // EmailAddressList
 				}
-				
+
 				if ($this->m_deliveryName !== null && !$this->m_deliveryName->isEmpty())
 				{					
 					$writer->writeStartElement("Name");
-					
+
 					if ($this->m_deliveryName->getTitle() !== null)
 					{
 						$writer->writeElementString("Title", $this->m_deliveryName->getTitle());
 					}
-					
+
 					if ($this->m_deliveryName->getFirstName() !== null)
 					{
 						$writer->writeElementString("FirstName", $this->m_deliveryName->getFirstName());
 					}
-					
+
 					if ($this->m_deliveryName->getInitials() !== null)
 					{
 						$writer->writeElementString("Initials", $this->m_deliveryName->getInitials());
 					}
-					
+
 					if ($this->m_deliveryName->getLastName() !== null)
 					{
 						$writer->writeElementString("LastName", $this->m_deliveryName->getLastName());
 					}
-					
+
 					$writer->writeEndElement(); // Name
 				}
-				
+
 				if ($this->m_deliveryPhoneNumbers !== null && count($this->m_deliveryPhoneNumbers) !== 0)
 				{					
 					$writer->writeStartElement("PhoneNumberList");
-					
+
 					for ($id = 0; $id < count($this->m_deliveryPhoneNumbers); $id++)
 					{						
 						$phoneNumber = $this->m_deliveryPhoneNumbers[$id];
-					
+
 						$writer->writeStartElement("PhoneNumber");
 						$writer->writeAttributeString("id", $id + 1);
 						$writer->writeAttributeString("type", $phoneNumber->getType());
 						$writer->writeString($phoneNumber->getNumber());
 						$writer->writeEndElement(); // PhoneNumber
-						
+
 						unset($phoneNumber);
 					}
-					
+
 					$writer->writeEndElement(); // PhoneNumberList
 				}
-				
+
 				$writer->writeEndElement(); // Contact
 			}
-				
+
 			$writer->writeEndElement(); // Delivery
 		}
 
@@ -875,7 +875,7 @@ class CardEaseXML_Request {
 		if ($this->m_extendedProperties !== null && count($this->m_extendedProperties) !== 0)
 		{
 			$writer->writeStartElement("ExtendedPropertyList");
-			
+
 			foreach ($this->m_extendedProperties as $extendedProperty)
 			{
 				$writer->writeStartElement("ExtendedProperty");
@@ -883,7 +883,7 @@ class CardEaseXML_Request {
 				$writer->writeString($extendedProperty->getValue());
 				$writer->writeEndElement(); // ExtendedProperty
 			}
-			
+
 			$writer->writeEndElement(); // ExtendedPropertyList
 		}
 
@@ -894,18 +894,18 @@ class CardEaseXML_Request {
 			($this->m_invoicePhoneNumbers !== null && count($this->m_invoicePhoneNumbers) !== 0))
 		{			
 			$writer->writeStartElement("Invoice");
-			
+
 			// InvoiceAddress
 			if (($this->m_invoiceAddress !== null && !$this->m_invoiceAddress->isEmpty()))
 			{				
 				$writer->writeStartElement("Address");
-				
+
 				$writer->writeAttributeString("format", "standard");
-				
+
 				if ($this->m_invoiceAddress->getRecipient() !== null)
 				{					
 					$recipient = $this->m_invoiceAddress->getRecipient();
-				
+
 					for ($id = 0; $id < count($recipient); $id++)
 					{
 						$writer->writeStartElement("Recipient");
@@ -913,14 +913,14 @@ class CardEaseXML_Request {
 						$writer->writeString($recipient[$id]);
 						$writer->writeEndElement(); // Recipient
 					}
-					
+
 					unset($recipient);
 				}
-				
+
 				if ($this->m_invoiceAddress->getLines() !== null)
 				{					
 					$lines = $this->m_invoiceAddress->getLines();
-				
+
 					for ($id = 0; $id < count($lines); $id++)
 					{
 						$writer->writeStartElement("Line");
@@ -928,110 +928,110 @@ class CardEaseXML_Request {
 						$writer->writeString($lines[$id]);
 						$writer->writeEndElement(); // Line
 					}
-					
+
 					unset($lines);
 				}
-				
+
 				if ($this->m_invoiceAddress->getCity() !== null)
 				{
 					$writer->writeElementString("City", $this->m_invoiceAddress->getCity());
 				}
-				
+
 				if ($this->m_invoiceAddress->getState() !== null)
 				{
 					$writer->writeElementString("State", $this->m_invoiceAddress->getState());
 				}
-				
+
 				if ($this->m_invoiceAddress->getZipCode() !== null)
 				{
 					$writer->writeElementString("ZipCode", $this->m_invoiceAddress->getZipCode());
 				}
-				
+
 				if ($this->m_invoiceAddress->getCountry() !== null)
 				{
 					$writer->writeElementString("Country", $this->m_invoiceAddress->getCountry());
 				}
-				
+
 				$writer->writeEndElement(); // Address
 			}
-			
+
 			// InvoiceName
 			if (($this->m_invoiceEmailAddresses !== null && count($this->m_invoiceEmailAddresses) !== 0) ||
 				($this->m_invoiceName !== null && !$this->m_invoiceName->isEmpty()) ||
 				($this->m_invoicePhoneNumbers !== null && count($this->m_invoicePhoneNumbers) !== 0))
 			{				
 				$writer->writeStartElement("Contact");
-				
+
 				if ($this->m_invoiceEmailAddresses !== null && count($this->m_invoiceEmailAddresses) !== 0)
 				{					
 					$writer->writeStartElement("EmailAddressList");
-					
+
 					for ($id = 0; $id < count($this->m_invoiceEmailAddresses); $id++)
 					{						
 						$emailAddress = $this->m_invoiceEmailAddresses[$id];						
-					
+
 						$writer->writeStartElement("EmailAddress");
 						$writer->writeAttributeString("id", $id + 1);
 						$writer->writeAttributeString("type", $emailAddress->getType());
 						$writer->writeString($emailAddress->getAddress());
 						$writer->writeEndElement(); // EmailAddress
-						
+
 						unset($emailAddress);
 					}
-					
+
 					$writer->writeEndElement(); // EmailAddressList
 				}
-				
+
 				if ($this->m_invoiceName !== null && !$this->m_invoiceName->isEmpty())
 				{				
 					$writer->writeStartElement("Name");
-					
+
 					if ($this->m_invoiceName->getTitle() !== null)
 					{
 						$writer->writeElementString("Title", $this->m_invoiceName->getTitle());
 					}
-					
+
 					if ($this->m_invoiceName->getFirstName() !== null)
 					{
 						$writer->writeElementString("FirstName", $this->m_invoiceName->getFirstName());
 					}
-					
+
 					if ($this->m_invoiceName->getInitials() !== null)
 					{
 						$writer->writeElementString("Initials", $this->m_invoiceName->getInitials());
 					}
-					
+
 					if ($this->m_invoiceName->getLastName() !== null)
 					{
 						$writer->writeElementString("LastName", $this->m_invoiceName->getLastName());
 					}
-					
+
 					$writer->writeEndElement(); // Name
 				}
-				
+
 				if ($this->m_invoicePhoneNumbers !== null && count($this->m_invoicePhoneNumbers) !== 0)
 				{					
 					$writer->writeStartElement("PhoneNumberList");
-					
+
 					for ($id = 0; $id < count($this->m_invoicePhoneNumbers); $id++)
 					{						
 						$phoneNumber = $this->m_invoicePhoneNumbers[$id];						
-					
+
 						$writer->writeStartElement("PhoneNumber");
 						$writer->writeAttributeString("id", $id + 1);
 						$writer->writeAttributeString("type", $phoneNumber->getType());
 						$writer->writeString($phoneNumber->getNumber());
 						$writer->writeEndElement(); // PhoneNumber
-						
+
 						unset($phoneNumber);
 					}
-					
+
 					$writer->writeEndElement(); // PhoneNumbers
 				}
-				
+
 				$writer->writeEndElement(); // Contact
 			}
-			
+
 			$writer->writeEndElement(); // Invoice
 		}
 
@@ -1039,73 +1039,73 @@ class CardEaseXML_Request {
 		if ($this->m_products !== null && count($this->m_products) !== 0)
 		{			
 			$writer->writeStartElement("ProductList");
-			
+
 			for ($id = 0; $id < count($this->m_products); $id++)
 			{				
 				$writer->writeStartElement("Product");
 				$writer->writeAttributeString("id", $id + 1);
-				
+
 				$product = $this->m_products[$id];
-				
+
 				if ($product->getAmount() !== null)
 				{
 					$writer->writeStartElement("Amount");
-					
+
 					// Default is minor
 					if ($product->getAmountUnit() === AmountUnit_Major)
 					{
 						$writer->writeAttributeString("unit", "major");
 					}
-					
+
 					$writer->writeString($product->getAmount());
 					$writer->writeEndElement(); // Amount
 				}
-				
+
 				if ($product->getCategory() !== null)
 				{
 					$writer->writeElementString("Category", $product->getCategory());
 				}
-				
+
 				if ($product->getCode() !== null)
 				{
 					$writer->writeElementString("Code", $product->getCode());
 				}
-				
+
 				if ($product->getDescription() !== null)
 				{
 					$writer->writeElementString("Description", $product->getDescription());
 				}
-				
+
 				if ($product->getCurrencyCode() !== null)
 				{
 					$writer->writeElementString("CurrencyCode", $product->getCurrencyCode());
 				}
-				
+
 				if ($product->getName() !== null)
 				{
 					$writer->writeElementString("Name", $product->getName());
 				}
-				
+
 				if ($product->getQuantity() !== null)
 				{
 					$writer->writeElementString("Quantity", $product->getQuantity());
 				}
-				
+
 				if ($product->getRisk() !== null)
 				{
 					$writer->writeElementString("Risk", $product->getRisk());
 				}
-				
+
 				if ($product->getType() !== null)
 				{
 					$writer->writeElementString("Type", $product->getType());
 				}
-				
+
 				$writer->writeEndElement(); // Product
-				
+
 				unset($product);
 			}
-			
+
 			$writer->writeEndElement(); // ProductList			
 		}
 
@@ -1193,139 +1193,139 @@ class CardEaseXML_Request {
 				$this->m_track2 !== null || $this->m_pan !== null || $this->m_cardReference !== null)
 			{		
 				$writer->writeStartElement("CardDetails");
-	
+
 				if ($this->m_iccTags !== null && count($this->m_iccTags) !== 0)
 				{	
 					$writer->writeStartElement("ICC");
 					$writer->writeAttributeString("type", $this->m_iccType);
-	
+
 					foreach ($this->m_iccTags as $tag)
 					{	
 						if ($tag === null)
 						{
 							continue;
 						}
-	
+
 						$writer->writeStartElement("ICCTag");
 						$writer->writeAttributeString("tagid", $tag->getID());
-	
+
 						if ($tag->getType() === ICCTagValueType_String)
 						{
 							$writer->writeAttributeString("type", "string");
 						}
-	
+
 						$writer->writeString($tag->getValue());
 						$writer->writeEndElement(); // ICCTag
 					}
-	
+
 					$writer->writeEndElement(); // ICC
-	
+
 				} 
 				else if ($this->m_track2 !== null)
 				{	
 					$writer->writeStartElement("CAT");
-	
+
 					if ($this->m_iccFallback)
 					{
 						$writer->writeAttributeString("fallback", "true");
 					}
-	
+
 					if ($this->m_track1 !== null)
 					{
 						$writer->writeElementString("Track1", $this->m_track1);
 					}
-	
+
 					if ($this->m_track2 !== null)
 					{
 						$writer->writeElementString("Track2", $this->m_track2);
 					}
-	
+
 					if ($this->m_track3 !== null)
 					{
 						$writer->writeElementString("Track3", $this->m_track3);
 					}
-	
+
 					$writer->writeEndElement(); // CAT
-	
+
 				}
 				else if ($this->m_pan !== null || $this->m_cardReference !== null)
 				{	
 					$writer->writeStartElement("Manual");
-	
+
 					if ($this->m_manualType !== null)
 					{
 						$writer->writeAttributeString("type", $this->m_manualType);
 					}
-	
+
 					if ($this->m_cardReference !== null)
 					{
 						$writer->writeElementString("CardReference", $this->m_cardReference);
 					}
-					
+
 					if ($this->m_cardHash !== null)
 					{
 						$writer->writeElementString("CardHash", $this->m_cardHash);
 					}
-	
+
 					if ($this->m_pan !== null)
 					{
 						$writer->writeElementString("PAN", $this->m_pan);
 					}
-	
+
 					if ($this->m_expiryDate !== null)
 					{	
 						$writer->writeStartElement("ExpiryDate");
-	
+
 						if ($this->m_expiryDateFormat !== null)
 						{
 							$writer->writeAttributeString("format",	$this->m_expiryDateFormat);
 						}
-	
+
 						$writer->writeString($this->m_expiryDate);
 						$writer->writeEndElement(); // ExpiryDate
-	
+
 					}
-	
+
 					if ($this->m_startDate !== null)
 					{	
 						$writer->writeStartElement("StartDate");
-	
+
 						if ($this->m_startDateFormat !== null)
 						{
 							$writer->writeAttributeString("format", $this->m_startDateFormat);
 						}
-	
+
 						$writer->writeString($this->m_startDate);
 						$writer->writeEndElement(); // StartDate	
 					}
-	
+
 					if ($this->m_issueNumber !== null)
 					{
 						$writer->writeElementString("IssueNumber", $this->m_issueNumber);
 					}
-	
+
 					$writer->writeEndElement(); // Manual
 				}
-	
+
 				if ($this->m_address !== null || $this->m_csc !== null || $this->m_zipCode !== null)
 				{	
 					$writer->writeStartElement("AdditionalVerification");
-	
+
 					if ($this->m_address !== null)
 					{
 						$writer->writeElementString("Address", $this->m_address);
 					}
-	
+
 					if ($this->m_csc !== null)
 					{
 						$writer->writeElementString("CSC", $this->m_csc);
 					}
-	
+
 					if ($this->m_zipCode !== null)
 					{
 						$writer->writeElementString("Zip", $this->m_zipCode);
 					}
-	
+
 					$writer->writeEndElement(); // AdditionalVerification
 				}
 
@@ -1333,13 +1333,13 @@ class CardEaseXML_Request {
 				if ($this->m_cardHolderAddress !== null && !$this->m_cardHolderAddress->IsEmpty())
 				{					
 					$writer->writeStartElement("Address");
-					
+
 					$writer->writeAttributeString("format", "standard");
-					
+
 					if ($this->m_cardHolderAddress->getRecipient() !== null)
 					{						
 						$recipient = $this->m_cardHolderAddress->getRecipient();
-					
+
 						for ($id = 0; $id < count($recipient); $id++)
 						{
 							$writer->writeStartElement("Recipient");
@@ -1347,14 +1347,14 @@ class CardEaseXML_Request {
 							$writer->writeString($recipient[$id]);
 							$writer->writeEndElement(); // Recipient
 						}
-						
+
 						unset($recipient);
 					}
-					
+
 					if ($this->m_cardHolderAddress->getLines() !== null)
 					{						
 						$lines = $this->m_cardHolderAddress->getLines();
-					
+
 						for ($id = 0; $id < count($lines); $id++)
 						{
 							$writer->writeStartElement("Line");
@@ -1362,30 +1362,30 @@ class CardEaseXML_Request {
 							$writer->writeString($lines[$id]);
 							$writer->writeEndElement(); // Line
 						}
-						
+
 						unset($lines);
 					}
-					
+
 					if ($this->m_cardHolderAddress->getCity() !== null)
 					{
 						$writer->writeElementString("City", $this->m_cardHolderAddress->getCity());
 					}
-					
+
 					if ($this->m_cardHolderAddress->getState() !== null)
 					{
 						$writer->writeElementString("State", $this->m_cardHolderAddress->getState());
 					}
-					
+
 					if ($this->m_cardHolderAddress->getZipCode() !== null)
 					{
 						$writer->writeElementString("ZipCode", $this->m_cardHolderAddress->getZipCode());
 					}
-					
+
 					if ($this->m_cardHolderAddress->getCountry() !== null)
 					{
 						$writer->writeElementString("Country", $this->m_cardHolderAddress->getCountry());
 					}
-					
+
 					$writer->writeEndElement(); // Address
 				}
 
@@ -1395,74 +1395,74 @@ class CardEaseXML_Request {
 					($this->m_cardHolderPhoneNumbers !== null && count($this->m_cardHolderPhoneNumbers) !== 0))
 				{					
 					$writer->writeStartElement("Contact");
-					
+
 					if ($this->m_cardHolderEmailAddresses !== null && count($this->m_cardHolderEmailAddresses) !== 0)
 					{					
 						$writer->writeStartElement("EmailAddressList");
-						
+
 						for ($id = 0; $id < count($this->m_cardHolderEmailAddresses); $id++)
 						{							
 							$emailAddress = $this->m_cardHolderEmailAddresses[$id];							
-						
+
 							$writer->writeStartElement("EmailAddress");
 							$writer->writeAttributeString("id", $id + 1);
 							$writer->writeAttributeString("type", $emailAddress->getType());
 							$writer->writeString($emailAddress->getAddress());
 							$writer->writeEndElement(); // EmailAddress
-							
+
 							unset($emailAddress);
 						}
-						
+
 						$writer->writeEndElement(); // EmailAddressList
 					}
-					
+
 					if ($this->m_cardHolderName !== null && !$this->m_cardHolderName->isEmpty())
 					{						
 						$writer->writeStartElement("Name");
-						
+
 						if ($this->m_cardHolderName->getTitle() !== null)
 						{
 							$writer->writeElementString("Title", $this->m_cardHolderName->getTitle());
 						}
-						
+
 						if ($this->m_cardHolderName->getFirstName() !== null)
 						{
 							$writer->writeElementString("FirstName", $this->m_cardHolderName->getFirstName());
 						}
-						
+
 						if ($this->m_cardHolderName->getInitials() !== null)
 						{
 							$writer->writeElementString("Initials", $this->m_cardHolderName->getInitials());
 						}
-						
+
 						if ($this->m_cardHolderName->getLastName() !== null)
 						{
 							$writer->writeElementString("LastName", $this->m_cardHolderName->getLastName());
 						}
-						
+
 						$writer->writeEndElement(); // Name
 					}
-					
+
 					if ($this->m_cardHolderPhoneNumbers !== null && count($this->m_cardHolderPhoneNumbers) !== 0)
 					{					
 						$writer->writeStartElement("PhoneNumberList");
-						
+
 						for ($id = 0; $id < count($this->m_cardHolderPhoneNumbers); $id++)
 						{							
 							$phoneNumber = $this->m_cardHolderPhoneNumbers[$id];
-						
+
 							$writer->writeStartElement("PhoneNumber");
 							$writer->writeAttributeString("id", $id + 1);
 							$writer->writeAttributeString("type", $phoneNumber->getType());
 							$writer->writeString($phoneNumber->getNumber());
 							$writer->writeEndElement(); // PhoneNumber
-							
+
 							unset($phoneNumber);
 						}
-						
+
 						$writer->writeEndElement(); // PhoneNumbers
 					}
-					
+
 					$writer->writeEndElement(); // Contact
 				}
 
@@ -1471,37 +1471,37 @@ class CardEaseXML_Request {
 					|| $this->m_3DSecureTransactionStatus !== ThreeDSecureTransactionStatus_Empty)
 				{		
 					$writer->writeStartElement("ThreeDSecure");
-		
+
 					if ($this->m_3DSecureCardHolderEnrolled !== ThreeDSecureCardHolderEnrolled_Empty)
 					{
 						$writer->writeElementString("CardHolderEnrolled",
 							$this->m_3DSecureCardHolderEnrolled);
 					}
-		
+
 					if ($this->m_3DSecureECI !== null)
 					{
 						$writer->writeElementString("ECI", $this->m_3DSecureECI);
 					}
-		
+
 					if ($this->m_3DSecureIAV !== null)
 					{
 						$writer->writeStartElement("IAV");
-		
+
 						if ($this->m_3DSecureIAVAlgorithm !== null)
 						{
 							$writer->writeAttributeString("algorithm", $this->m_3DSecureIAVAlgorithm);
 						}
-		
+
 						$writer->writeAttributeString("format", $this->m_3DSecureIAVFormat);		
 						$writer->writeString($this->m_3DSecureIAV);
 						$writer->writeEndElement(); // IAV
 					}
-		
+
 					if ($this->m_3DSecureTransactionStatus !== ThreeDSecureTransactionStatus_Empty)
 					{
 						$writer->writeElementString("TransactionStatus", $this->m_3DSecureTransactionStatus);
 					}
-	
+
 					if ($this->m_3DSecureXID !== null)
 					{
 						$writer->writeStartElement("XID");
@@ -1509,10 +1509,10 @@ class CardEaseXML_Request {
 						$writer->writeString($this->m_3DSecureXID);
 						$writer->writeEndElement(); // XID
 					}
-		
+
 					$writer->writeEndElement(); // ThreeDSecure
 				}
-				
+
 				$writer->writeEndElement(); // CardDetails
 			}
 		}
@@ -3823,7 +3823,7 @@ class CardEaseXML_Request {
 			if (strlen($this->m_expiryDate) !== strlen($this->m_expiryDateFormat)) {
 				trigger_error("CardEaseXMLRequest: ExpiryDate does not conform to ExpiryDateFormat", E_USER_ERROR);
 			}
-			
+
 			// check format against date
 		}
 
@@ -3847,7 +3847,7 @@ class CardEaseXML_Request {
 			if (strlen($this->m_expiryDate) !== strlen($this->m_expiryDateFormat)) {
 				trigger_error("CardEaseXMLRequest: ExpiryDate does not conform to ExpiryDateFormat", E_USER_ERROR);
 			}
-			
+
 			// check format against date
 		}
 
@@ -3871,7 +3871,7 @@ class CardEaseXML_Request {
 			if (strlen($this->m_startDate) !== strlen($this->m_startDateFormat)) {
 				trigger_error("CardEaseXMLRequest: StartDate does not conform to StartDateFormat", E_USER_ERROR);
 			}
-			
+
 			// check format against date
 		}
 
