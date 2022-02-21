@@ -199,27 +199,27 @@ class CardEaseXML_Request {
 	 * @private
 	 */
 	var $m_cardHash = null;
-	
+
 	/**
 	 * The card holder's address.
 	 */
 	var $m_cardHolderAddress = null; // Cannot initialise here
-	
+
 	/**
 	 * The card holder's email addresses.
 	 */
 	var $m_cardHolderEmailAddresses = array();
-	
+
 	/**
 	 * The card holder's name.
 	 */
 	var $m_cardHolderName = null; // Cannot initialise here
-	
+
 	/**
 	 * The card holder's phone numbers.
 	 */
 	var $m_cardHolderPhoneNumbers = array();
-	
+
 	/**
 	 * The reference of an existing card to use for manual payment in
 	 * place of the PAN, ExpiryDate etc.
@@ -243,17 +243,17 @@ class CardEaseXML_Request {
 	 * The delivery address.
 	 */
 	var $m_deliveryAddress = null; // Cannot initialise here
-	
+
 	/**
 	 * The delivery email addresses.
 	 */
 	var $m_deliveryEmailAddresses = array();
-	
+
 	/**
 	 * The delivery name.
 	 */
 	var $m_deliveryName = null; // Cannot initialise here
-	
+
 	/**
 	 * The delivery phone numbers.
 	 */
@@ -306,17 +306,17 @@ class CardEaseXML_Request {
 	 * The invoice address.
 	 */
 	var $m_invoiceAddress = null; // Cannot initialise here
-	
+
 	/**
 	 * The invoice email addresses.
 	 */
 	var $m_invoiceEmailAddresses = array();
-	
+
 	/**
 	 * The invoice name.
 	 */
 	var $m_invoiceName = null; // Cannot initialise here
-	
+
 	/**
 	 * The invoice phone numbers.
 	 */
@@ -475,7 +475,7 @@ class CardEaseXML_Request {
 		$this->m_currencyCode = null;
 		$this->m_deliveryAddress = new Address();
 		$this->m_deliveryEmailAddresses = array();
-		$this->m_deliveryName = new Name();	
+		$this->m_deliveryName = new Name();
 		$this->m_deliveryPhoneNumbers = array();
 		$this->m_expiryDate = null;
 		$this->m_expiryDateFormat = "yyMM";
@@ -486,7 +486,7 @@ class CardEaseXML_Request {
 		$this->m_iccType = "EMV";
 		$this->m_invoiceAddress = new Address();
 		$this->m_invoiceEmailAddresses = array();
-		$this->m_invoiceName = new Name();	
+		$this->m_invoiceName = new Name();
 		$this->m_invoicePhoneNumbers = array();
 		$this->m_issueNumber = null;
 		$this->m_machineReference = null;
@@ -519,11 +519,11 @@ class CardEaseXML_Request {
 	 * @see EmailAddress
 	 */
 	function addCardHolderEmailAddress($emailAddress) {
-		
+
 		if ($this->m_cardHolderEmailAddresses === null) {
 			$this->m_cardHolderEmailAddresses = array();
 		}
-		
+
 		$this->m_cardHolderEmailAddresses[] = $emailAddress;
 	}
 
@@ -535,11 +535,11 @@ class CardEaseXML_Request {
 	 * @see PhoneNumber
 	 */
 	function addCardHolderPhoneNumber($phoneNumber) {
-		
+
 		if ($this->m_cardHolderPhoneNumbers === null) {
 			$this->m_cardHolderPhoneNumbers = array();
 		}
-		
+
 		$this->m_cardHolderPhoneNumbers[] = $phoneNumber;
 	}
 
@@ -551,11 +551,11 @@ class CardEaseXML_Request {
 	 * @see EmailAddress
 	 */
 	function addDeliveryEmailAddress($emailAddress) {
-		
+
 		if ($this->m_deliveryEmailAddresses === null) {
 			$this->m_deliveryEmailAddresses = array();
 		}
-		
+
 		$this->m_deliveryEmailAddresses[] = $emailAddress;
 	}
 
@@ -567,28 +567,28 @@ class CardEaseXML_Request {
 	 * @see PhoneNumber
 	 */
 	function addDeliveryPhoneNumber($phoneNumber) {
-		
+
 		if ($this->m_deliveryPhoneNumbers === null) {
 			$this->m_deliveryPhoneNumbers = array();
 		}
-		
+
 		$this->m_deliveryPhoneNumbers[] = $phoneNumber;
 	}
 
 	/**
 	 * Adds an extended property to the list of extended properties associated with this request.
-	 * 
+	 *
 	 * @param extendedProperty The extended property to add to the list of extended properties associated with this request.  Should not be null.
 	 * @see getExtendedProperties()
 	 * @see setExtendedProperties()
 	 * @see ExtendedProperty
 	 */
 	function addExtendedProperty($extendedProperty) {
-		
+
 		if ($this->m_extendedProperties === null) {
 			$this->m_extendedProperties = array();
 		}
-		
+
 		$this->m_extendedProperties[] = $extendedProperty;
 	}
 
@@ -597,7 +597,7 @@ class CardEaseXML_Request {
 	 * request. Each ICC tag has an id, type and value. For example, a tag
 	 * of 0x9f02/AsciiHex/000000000100 is using to specify the transaction
 	 * amount. These are mandatory for an EMV transaction.
-	 * 
+	 *
 	 * @param iccTag
 	 *	The ICC tag to add to the list of ICC tags associated with
 	 *	this request. This should not be null.
@@ -613,7 +613,7 @@ class CardEaseXML_Request {
 
 		$this->m_iccTags[] = $iccTag;
 	}
-	
+
 	/**
 	 * Adds an email address to the list of email addresses associated with the invoice address.
 	 * @param emailAddress The email address to add.  Should not be null.
@@ -622,11 +622,11 @@ class CardEaseXML_Request {
 	 * @see EmailAddress
 	 */
 	function addInvoiceEmailAddress($emailAddress) {
-		
+
 		if ($this->m_invoiceEmailAddresses === null) {
 			$this->m_invoiceEmailAddresses = array();
 		}
-		
+
 		$this->m_invoiceEmailAddresses[] = $emailAddress;
 	}
 
@@ -638,11 +638,11 @@ class CardEaseXML_Request {
 	 * @see PhoneNumber
 	 */
 	function addInvoicePhoneNumber($phoneNumber) {
-		
+
 		if ($this->m_invoicePhoneNumbers === null) {
 			$this->m_invoicePhoneNumbers = array();
 		}
-		
+
 		$this->m_invoicePhoneNumbers[] = $phoneNumber;
 	}
 
@@ -729,7 +729,7 @@ class CardEaseXML_Request {
 			($this->m_deliveryEmailAddresses !== null && count($this->m_deliveryEmailAddresses) !== 0) ||
 			($this->m_deliveryName !== null && !$this->m_deliveryName->isEmpty()) ||
 			($this->m_deliveryPhoneNumbers !== null && count($this->m_deliveryPhoneNumbers) !== 0))
-		{			
+		{
 			$writer->writeStartElement("Delivery");
 
 			if ($this->m_deliveryAddress !== null && !$this->m_deliveryAddress->isEmpty())
@@ -739,7 +739,7 @@ class CardEaseXML_Request {
 				$writer->writeAttributeString("format", "standard");
 
 				if ($this->m_deliveryAddress->getRecipient() !== null)
-				{					
+				{
 					$recipient = $this->m_deliveryAddress->getRecipient();
 
 					for ($id = 0; $id < count($recipient); $id++)
@@ -754,7 +754,7 @@ class CardEaseXML_Request {
 				}
 
 				if ($this->m_deliveryAddress->getLines() !== null)
-				{					
+				{
 					$lines = $this->m_deliveryAddress->getLines();
 
 					for ($id = 0; $id < count($lines); $id++)
@@ -795,15 +795,15 @@ class CardEaseXML_Request {
 			if (($this->m_deliveryEmailAddresses !== null && count($this->m_deliveryEmailAddresses) !== 0) ||
 				($this->m_deliveryName !== null && !$this->m_deliveryName->isEmpty()) ||
 				($this->m_deliveryPhoneNumbers !== null && count($this->m_deliveryPhoneNumbers) !== 0))
-			{				
+			{
 				$writer->writeStartElement("Contact");
 
 				if ($this->m_deliveryEmailAddresses !== null && count($this->m_deliveryEmailAddresses) !== 0)
-				{					
+				{
 					$writer->writeStartElement("EmailAddressList");
 
 					for ($id = 0; $id < count($this->m_deliveryEmailAddresses); $id++)
-					{						
+					{
 						$emailAddress = $this->m_deliveryEmailAddresses[$id];
 
 						$writer->writeStartElement("EmailAddress");
@@ -819,7 +819,7 @@ class CardEaseXML_Request {
 				}
 
 				if ($this->m_deliveryName !== null && !$this->m_deliveryName->isEmpty())
-				{					
+				{
 					$writer->writeStartElement("Name");
 
 					if ($this->m_deliveryName->getTitle() !== null)
@@ -846,11 +846,11 @@ class CardEaseXML_Request {
 				}
 
 				if ($this->m_deliveryPhoneNumbers !== null && count($this->m_deliveryPhoneNumbers) !== 0)
-				{					
+				{
 					$writer->writeStartElement("PhoneNumberList");
 
 					for ($id = 0; $id < count($this->m_deliveryPhoneNumbers); $id++)
-					{						
+					{
 						$phoneNumber = $this->m_deliveryPhoneNumbers[$id];
 
 						$writer->writeStartElement("PhoneNumber");
@@ -892,18 +892,18 @@ class CardEaseXML_Request {
 			($this->m_invoiceEmailAddresses !== null && count($this->m_invoiceEmailAddresses) !== 0) ||
 			($this->m_invoiceName !== null && !$this->m_invoiceName->isEmpty()) ||
 			($this->m_invoicePhoneNumbers !== null && count($this->m_invoicePhoneNumbers) !== 0))
-		{			
+		{
 			$writer->writeStartElement("Invoice");
 
 			// InvoiceAddress
 			if (($this->m_invoiceAddress !== null && !$this->m_invoiceAddress->isEmpty()))
-			{				
+			{
 				$writer->writeStartElement("Address");
 
 				$writer->writeAttributeString("format", "standard");
 
 				if ($this->m_invoiceAddress->getRecipient() !== null)
-				{					
+				{
 					$recipient = $this->m_invoiceAddress->getRecipient();
 
 					for ($id = 0; $id < count($recipient); $id++)
@@ -918,7 +918,7 @@ class CardEaseXML_Request {
 				}
 
 				if ($this->m_invoiceAddress->getLines() !== null)
-				{					
+				{
 					$lines = $this->m_invoiceAddress->getLines();
 
 					for ($id = 0; $id < count($lines); $id++)
@@ -959,16 +959,16 @@ class CardEaseXML_Request {
 			if (($this->m_invoiceEmailAddresses !== null && count($this->m_invoiceEmailAddresses) !== 0) ||
 				($this->m_invoiceName !== null && !$this->m_invoiceName->isEmpty()) ||
 				($this->m_invoicePhoneNumbers !== null && count($this->m_invoicePhoneNumbers) !== 0))
-			{				
+			{
 				$writer->writeStartElement("Contact");
 
 				if ($this->m_invoiceEmailAddresses !== null && count($this->m_invoiceEmailAddresses) !== 0)
-				{					
+				{
 					$writer->writeStartElement("EmailAddressList");
 
 					for ($id = 0; $id < count($this->m_invoiceEmailAddresses); $id++)
-					{						
-						$emailAddress = $this->m_invoiceEmailAddresses[$id];						
+					{
+						$emailAddress = $this->m_invoiceEmailAddresses[$id];
 
 						$writer->writeStartElement("EmailAddress");
 						$writer->writeAttributeString("id", $id + 1);
@@ -983,7 +983,7 @@ class CardEaseXML_Request {
 				}
 
 				if ($this->m_invoiceName !== null && !$this->m_invoiceName->isEmpty())
-				{				
+				{
 					$writer->writeStartElement("Name");
 
 					if ($this->m_invoiceName->getTitle() !== null)
@@ -1010,12 +1010,12 @@ class CardEaseXML_Request {
 				}
 
 				if ($this->m_invoicePhoneNumbers !== null && count($this->m_invoicePhoneNumbers) !== 0)
-				{					
+				{
 					$writer->writeStartElement("PhoneNumberList");
 
 					for ($id = 0; $id < count($this->m_invoicePhoneNumbers); $id++)
-					{						
-						$phoneNumber = $this->m_invoicePhoneNumbers[$id];						
+					{
+						$phoneNumber = $this->m_invoicePhoneNumbers[$id];
 
 						$writer->writeStartElement("PhoneNumber");
 						$writer->writeAttributeString("id", $id + 1);
@@ -1037,11 +1037,11 @@ class CardEaseXML_Request {
 
 		// Product List
 		if ($this->m_products !== null && count($this->m_products) !== 0)
-		{			
+		{
 			$writer->writeStartElement("ProductList");
 
 			for ($id = 0; $id < count($this->m_products); $id++)
-			{				
+			{
 				$writer->writeStartElement("Product");
 				$writer->writeAttributeString("id", $id + 1);
 
@@ -1106,7 +1106,7 @@ class CardEaseXML_Request {
 				unset($product);
 			}
 
-			$writer->writeEndElement(); // ProductList			
+			$writer->writeEndElement(); // ProductList
 		}
 
         if ($this->m_batchReference != null)
@@ -1191,16 +1191,16 @@ class CardEaseXML_Request {
 		{
 			if (($this->m_iccTags !== null && count($this->m_iccTags) !== 0) ||
 				$this->m_track2 !== null || $this->m_pan !== null || $this->m_cardReference !== null)
-			{		
+			{
 				$writer->writeStartElement("CardDetails");
 
 				if ($this->m_iccTags !== null && count($this->m_iccTags) !== 0)
-				{	
+				{
 					$writer->writeStartElement("ICC");
 					$writer->writeAttributeString("type", $this->m_iccType);
 
 					foreach ($this->m_iccTags as $tag)
-					{	
+					{
 						if ($tag === null)
 						{
 							continue;
@@ -1220,9 +1220,9 @@ class CardEaseXML_Request {
 
 					$writer->writeEndElement(); // ICC
 
-				} 
+				}
 				else if ($this->m_track2 !== null)
-				{	
+				{
 					$writer->writeStartElement("CAT");
 
 					if ($this->m_iccFallback)
@@ -1249,7 +1249,7 @@ class CardEaseXML_Request {
 
 				}
 				else if ($this->m_pan !== null || $this->m_cardReference !== null)
-				{	
+				{
 					$writer->writeStartElement("Manual");
 
 					if ($this->m_manualType !== null)
@@ -1273,7 +1273,7 @@ class CardEaseXML_Request {
 					}
 
 					if ($this->m_expiryDate !== null)
-					{	
+					{
 						$writer->writeStartElement("ExpiryDate");
 
 						if ($this->m_expiryDateFormat !== null)
@@ -1287,7 +1287,7 @@ class CardEaseXML_Request {
 					}
 
 					if ($this->m_startDate !== null)
-					{	
+					{
 						$writer->writeStartElement("StartDate");
 
 						if ($this->m_startDateFormat !== null)
@@ -1296,7 +1296,7 @@ class CardEaseXML_Request {
 						}
 
 						$writer->writeString($this->m_startDate);
-						$writer->writeEndElement(); // StartDate	
+						$writer->writeEndElement(); // StartDate
 					}
 
 					if ($this->m_issueNumber !== null)
@@ -1308,7 +1308,7 @@ class CardEaseXML_Request {
 				}
 
 				if ($this->m_address !== null || $this->m_csc !== null || $this->m_zipCode !== null)
-				{	
+				{
 					$writer->writeStartElement("AdditionalVerification");
 
 					if ($this->m_address !== null)
@@ -1331,13 +1331,13 @@ class CardEaseXML_Request {
 
 				// CardHolderAddress
 				if ($this->m_cardHolderAddress !== null && !$this->m_cardHolderAddress->IsEmpty())
-				{					
+				{
 					$writer->writeStartElement("Address");
 
 					$writer->writeAttributeString("format", "standard");
 
 					if ($this->m_cardHolderAddress->getRecipient() !== null)
-					{						
+					{
 						$recipient = $this->m_cardHolderAddress->getRecipient();
 
 						for ($id = 0; $id < count($recipient); $id++)
@@ -1352,7 +1352,7 @@ class CardEaseXML_Request {
 					}
 
 					if ($this->m_cardHolderAddress->getLines() !== null)
-					{						
+					{
 						$lines = $this->m_cardHolderAddress->getLines();
 
 						for ($id = 0; $id < count($lines); $id++)
@@ -1393,16 +1393,16 @@ class CardEaseXML_Request {
 				if (($this->m_cardHolderEmailAddresses !== null && count($this->m_cardHolderEmailAddresses) !== 0) ||
 					($this->m_cardHolderName !== null && !$this->m_cardHolderName->isEmpty()) ||
 					($this->m_cardHolderPhoneNumbers !== null && count($this->m_cardHolderPhoneNumbers) !== 0))
-				{					
+				{
 					$writer->writeStartElement("Contact");
 
 					if ($this->m_cardHolderEmailAddresses !== null && count($this->m_cardHolderEmailAddresses) !== 0)
-					{					
+					{
 						$writer->writeStartElement("EmailAddressList");
 
 						for ($id = 0; $id < count($this->m_cardHolderEmailAddresses); $id++)
-						{							
-							$emailAddress = $this->m_cardHolderEmailAddresses[$id];							
+						{
+							$emailAddress = $this->m_cardHolderEmailAddresses[$id];
 
 							$writer->writeStartElement("EmailAddress");
 							$writer->writeAttributeString("id", $id + 1);
@@ -1417,7 +1417,7 @@ class CardEaseXML_Request {
 					}
 
 					if ($this->m_cardHolderName !== null && !$this->m_cardHolderName->isEmpty())
-					{						
+					{
 						$writer->writeStartElement("Name");
 
 						if ($this->m_cardHolderName->getTitle() !== null)
@@ -1444,11 +1444,11 @@ class CardEaseXML_Request {
 					}
 
 					if ($this->m_cardHolderPhoneNumbers !== null && count($this->m_cardHolderPhoneNumbers) !== 0)
-					{					
+					{
 						$writer->writeStartElement("PhoneNumberList");
 
 						for ($id = 0; $id < count($this->m_cardHolderPhoneNumbers); $id++)
-						{							
+						{
 							$phoneNumber = $this->m_cardHolderPhoneNumbers[$id];
 
 							$writer->writeStartElement("PhoneNumber");
@@ -1469,7 +1469,7 @@ class CardEaseXML_Request {
 				// 3-D Secure
 				if ($this->m_3DSecureCardHolderEnrolled !== ThreeDSecureCardHolderEnrolled_Empty
 					|| $this->m_3DSecureTransactionStatus !== ThreeDSecureTransactionStatus_Empty)
-				{		
+				{
 					$writer->writeStartElement("ThreeDSecure");
 
 					if ($this->m_3DSecureCardHolderEnrolled !== ThreeDSecureCardHolderEnrolled_Empty)
@@ -1492,7 +1492,7 @@ class CardEaseXML_Request {
 							$writer->writeAttributeString("algorithm", $this->m_3DSecureIAVAlgorithm);
 						}
 
-						$writer->writeAttributeString("format", $this->m_3DSecureIAVFormat);		
+						$writer->writeAttributeString("format", $this->m_3DSecureIAVFormat);
 						$writer->writeString($this->m_3DSecureIAV);
 						$writer->writeEndElement(); // IAV
 					}
@@ -1505,7 +1505,7 @@ class CardEaseXML_Request {
 					if ($this->m_3DSecureXID !== null)
 					{
 						$writer->writeStartElement("XID");
-						$writer->writeAttributeString("format", $this->m_3DSecureXIDFormat);		
+						$writer->writeAttributeString("format", $this->m_3DSecureXIDFormat);
 						$writer->writeString($this->m_3DSecureXID);
 						$writer->writeEndElement(); // XID
 					}
@@ -1667,7 +1667,7 @@ class CardEaseXML_Request {
 	 * in which authorisation is being performed. Typically it is the
 	 * first line of the address where the card is registered. This is an
 	 * alphanumeric string. It is optional.
-	 * 
+	 *
 	 * @return The address details associated with the card in this
 	 *	request. If null is returned the address has not been
 	 *	specified.
@@ -1681,7 +1681,7 @@ class CardEaseXML_Request {
 	 * Gets the amount associated with this request. This may be in major
 	 * or minor units. For example 1.23 GBP (Major) == 123 GBP (Minor).
 	 * The amount is mandatory for Auth and Offline requests.
-	 * 
+	 *
 	 * @return The amount associated with this request. If null is
 	 *	returned the amount has not been specified.
 	 * @see setAmount()
@@ -1698,7 +1698,7 @@ class CardEaseXML_Request {
 	 * Gets the units in which the amount associated with this request is
 	 * specified. This may be Major or Minor. For example 1.23 GBP (Major)
 	 * == 123 GBP (Minor). The default is Minor.
-	 * 
+	 *
 	 * @return The units in which the amount associated with this request
 	 *	is specified. If null is returned the amount unit for this
 	 *	request has not been specified.
@@ -1716,7 +1716,7 @@ class CardEaseXML_Request {
 	 * Gets whether an authorisation request is automatically confirmed
 	 * without a confirmation request. By default is is false, a
 	 * confirmation request will be required for this transaction.
-	 * 
+	 *
 	 * @return Whether an authorisation request is automatically confirmed
 	 *	without a confirmation request.
 	 * @see setAutoConfirm()
@@ -1724,7 +1724,7 @@ class CardEaseXML_Request {
 	function getAutoConfirm() {
 		return $this->m_autoConfirm;
 	}
-	
+
     /**
      * Gets the batch reference associated with this request.
      * <p>
@@ -1744,7 +1744,7 @@ class CardEaseXML_Request {
 	 * during previous requests. This is an alphanumeric string with a
 	 * fixed length of 36 characters. This is mandatory for Conf, Refund
 	 * and Void requests.
-	 * 
+	 *
 	 * @return The CardEaseXML reference associated with this request. If
 	 *	null is returned the CardEase reference has not been specified.
 	 * @see setCardEaseReference()
@@ -1756,7 +1756,7 @@ class CardEaseXML_Request {
 	/**
 	 * Gets the version of CardEaseXML that the client supports. The
 	 * default is to "1.0.0". This is mandatory for all requests.
-	 * 
+	 *
 	 * @return The version of CardEaseXML that the client supports. If
 	 *	null is returned the version has not been specified.
 	 */
@@ -1775,7 +1775,7 @@ class CardEaseXML_Request {
 	 * integrator need not store actual card details on their system for
 	 * repeat transactions. This reduces the risk of card information
 	 * being compromised, and reduces the integrators PCI requirements.
-	 * 
+	 *
 	 * @return The card hash returned from a previous transaction that
 	 *	references the card details that should also be used for this
 	 *	transaction.
@@ -1830,7 +1830,7 @@ class CardEaseXML_Request {
 	 * not store actual card details on their system for repeat
 	 * transactions. This reduces the risk of card information being
 	 * compromised, and reduces the integrators PCI requirements.
-	 * 
+	 *
 	 * @return The card reference returned from a previous transaction
 	 *	that references the card details that should also be used for
 	 *	this transaction.
@@ -1854,7 +1854,7 @@ class CardEaseXML_Request {
 	 * signature strip.
 	 * <p>
 	 * On Amex this is the four digits printed above the PAN.
-	 * 
+	 *
 	 * @return The security code associated with the card in this request.
 	 *	If null is returned the security code has not been specified.
 	 * @see setCSC()
@@ -1917,7 +1917,7 @@ class CardEaseXML_Request {
 	 * <td>Sweden, Krona</td>
 	 * </tr>
 	 * </table>
-	 * 
+	 *
 	 * @return The ISO currency code or mnemonic associated with this
 	 *	request amount. If null is returned the currency code has not
 	 *	been specified.
@@ -1964,7 +1964,7 @@ class CardEaseXML_Request {
 	 * is a character string with a maximum length of 10 characters.
 	 * This is mandatory for manual authorisation requests (such as Card
 	 * Not Present). This should match the expiry date format.
-	 * 
+	 *
 	 * @return The expiry date associated with the card in this request.
 	 *	If null is returned the expiry date has not been specified.
 	 * @see setExpiryDate()
@@ -2013,7 +2013,7 @@ class CardEaseXML_Request {
 	 * <td>27</td>
 	 * </tr>
 	 * </table>
-	 * 
+	 *
 	 * @return The expiry date format associated with the card in this
 	 *	request. If null is returned the expiry date has not been
 	 *	specified.
@@ -2029,7 +2029,7 @@ class CardEaseXML_Request {
 
 	/**
 	 * Gets the list of extended properties associated with this request.
-	 * 
+	 *
 	 * @return The list of extended properties associated with this request.
 	 * @see addExtendedProperty
 	 * @see setExtendedProperties()
@@ -2040,7 +2040,7 @@ class CardEaseXML_Request {
 
 	/**
 	 * Gets whether an ICC fallback has occured. Default is false.
-	 * 
+	 *
 	 * @return Whether an ICC fallback has occured.
 	 * @see setICCFallback()
 	 */
@@ -2052,7 +2052,7 @@ class CardEaseXML_Request {
 	 * Gets the ICC management function associated with an ICCManagement
 	 * request. This must be set for an ICCManagement request. It is an
 	 * alphanumeric string.
-	 * 
+	 *
 	 * @return The ICC management function associated with an ICC
 	 *	Management request. If null is returned no management function
 	 *	has been specified.
@@ -2069,7 +2069,7 @@ class CardEaseXML_Request {
 	 * has an id, type and value. For example, a tag of
 	 * 0x9f02/AsciiHex/000000000100 is using to specify the transaction
 	 * amount. These are mandatory for an EMV transaction.
-	 * 
+	 *
 	 * @return The list of ICC tags associated with this request. If null
 	 *	is returned no ICC tags have been specified.
 	 * @see ICCTag
@@ -2087,7 +2087,7 @@ class CardEaseXML_Request {
 	 * is an alphanumeric string. This is mandatory for ICC authorisations
 	 * and by default is "EMV". An ICC transaction must have associated
 	 * ICC tags.
-	 * 
+	 *
 	 * @return The type of ICC transaction associated with this request.
 	 *	If null is returned no ICC transaction type has been specified.
 	 * @see setICCType()
@@ -2138,7 +2138,7 @@ class CardEaseXML_Request {
 	 * requirement for this is dependant upon the card scheme associated
 	 * with the card and must be exactly as found on the card (including
 	 * any leading 0's).
-	 * 
+	 *
 	 * @return The issue number associated with the card in this request.
 	 *	If null is returned no issue number has been specified.
 	 * @see setIssueNumber()
@@ -2152,7 +2152,7 @@ class CardEaseXML_Request {
 	 * mandatory if the TerminalID is a Master Terminal ID used to
 	 * represent multiple terminals. This is an alphanumeric string with a
 	 * maximum length of 50 characters.
-	 * 
+	 *
 	 * @return The machine reference associated with this request. If null
 	 *	is returned no machine reference has been specified.
 	 * @see setMachineReference()
@@ -2167,7 +2167,7 @@ class CardEaseXML_Request {
 	 * Gets the type of manual authorisation being used for this request.
 	 * By default this is "cnp" (i.e. Card Not Present). This is an
 	 * alphanumeric string. This is mandatory for manual authorisations.
-	 * 
+	 *
 	 * @return The type of manual authorisation being used for this
 	 *	request. If null is returned no manual authorisation type has
 	 *	been specified.
@@ -2234,7 +2234,7 @@ class CardEaseXML_Request {
 	 * <td>22</td>
 	 * </tr>
 	 * </table>
-	 * 
+	 *
 	 * @return The format of the date and/or time of the transaction if processed offline.
 	 * @see setOfflineDateTimeFormat()
 	 * @see getOfflineDateTime()
@@ -2246,7 +2246,7 @@ class CardEaseXML_Request {
 
 	/**
 	 * Gets the originating IP address of the request.  E.g. client browser.
-	 * 
+	 *
 	 * @return The originating IP address of the request.  If null is returned no
 	 * IP address has been specified.
 	 * @see setOriginatingIPAddress()
@@ -2261,7 +2261,7 @@ class CardEaseXML_Request {
 	 * characters and a maximum length of 19 characters. This is a
 	 * requirement for manual authorisation requests (such as Card Not
 	 * Present).
-	 * 
+	 *
 	 * @return The PAN (Primary Account Number) associated with the card in
 	 *	this request. If null is returned no PAN has been specified.
 	 * @see setPAN()
@@ -2281,7 +2281,7 @@ class CardEaseXML_Request {
 	/**
 	 * Gets the type of this request. This can be Auth, Conf, Test and so
 	 * on. By default this is "Auth". This is mandatory for all requests.
-	 * 
+	 *
 	 * @return The type of this request. If null is returned no request
 	 *	type has been specified.
 	 * @see setRequestType()
@@ -2295,7 +2295,7 @@ class CardEaseXML_Request {
 	 * Gets the name of the software/firmware using the CardEaseXML SDK.
 	 * This is an alphanumeric string with a maximum length of 50
 	 * characters. This is mandatory for all requests.
-	 * 
+	 *
 	 * @return The name of the software/firmware using the CardEaseXML
 	 *	SDK. If null is returned no software name has been specified.
 	 * @see setSoftwareName()
@@ -2308,7 +2308,7 @@ class CardEaseXML_Request {
 	 * Gets the version of the software/firmware using the CardEaseXML SDK.
 	 * This is an alphanumeric string with a maximum length of 20
 	 * characters. This is mandatory for all requests.
-	 * 
+	 *
 	 * @return The version of the software/firmware using the CardEaseXML
 	 *	SDK. If null is returned no software version has been specified.
 	 * @see setSoftwareVersion()
@@ -2322,7 +2322,7 @@ class CardEaseXML_Request {
 	 * is a character string with a maximum length of 10 characters.
 	 * This is optional for manual authorisation requests (such as Card Not
 	 * Present). This should match the start date format.
-	 * 
+	 *
 	 * @return The start date associated with the card in this request. If
 	 *	null is returned no start date has been specified.
 	 * @see setStartDate()
@@ -2371,7 +2371,7 @@ class CardEaseXML_Request {
 	 * <td>27</td>
 	 * </tr>
 	 * </table>
-	 * 
+	 *
 	 * @return The start date format associated with the card in this
 	 *	request. If null is returned no start date format has been
 	 *	specified.
@@ -2391,7 +2391,7 @@ class CardEaseXML_Request {
 	 * CreditCall Communications. It is unique across all CardEase
 	 * products. It is a numeric string with a fixed length of 8
 	 * characters.
-	 * 
+	 *
 	 * @return The terminal ID associated with the machine performing this
 	 *	request. If null is returned no terminal ID has been specified.
 	 * @see setTerminalID()
@@ -2404,7 +2404,7 @@ class CardEaseXML_Request {
 	 * Gets the track 1 associated with the card in a magnetic stripe
 	 * authorisation. This is an alphanumeric string with a maximum length
 	 * of 79 characters. This is optional.
-	 * 
+	 *
 	 * @return The track 1 associated with the card in a magnetic stripe
 	 *	authorisation. If null is returned no track 1 has been
 	 *	specified.
@@ -2420,7 +2420,7 @@ class CardEaseXML_Request {
 	 * of 40 characters. This should include start and end sentinels (and
 	 * separator character if provided). It is mandatory for magnetic
 	 * stripe authorisation.
-	 * 
+	 *
 	 * @return The track 2 associated with the card in a magnetic stripe
 	 *	authorisation. If null is returned no track 2 has been
 	 *	specified.
@@ -2434,7 +2434,7 @@ class CardEaseXML_Request {
 	 * Gets the track 3 associated with the card in a magnetic stripe
 	 * authorisation. This is an alphanumeric string with a maximum length
 	 * of 107 characters. This is optional.
-	 * 
+	 *
 	 * @return The track 3 associated with the card in a magnetic stripe
 	 *	authorisation. If null is returned no track 3 has been
 	 *	specified.
@@ -2450,7 +2450,7 @@ class CardEaseXML_Request {
 	 * Communications for a terminal or number of terminals. It must be in
 	 * exactly the same case as provided by CreditCall. This is an
 	 * alphanumeric string with a maximum length of 20 characters.
-	 * 
+	 *
 	 * @return The transaction key associated with this request. If null is
 	 *	returned no transaction key has been specified.
 	 * @see setTransactionKey()
@@ -2464,7 +2464,7 @@ class CardEaseXML_Request {
 	 * user to attach their own reference against a request. This is an
 	 * alphanumeric string with a maximum length of 50 characters. This is
 	 * optional for all requests.
-	 * 
+	 *
 	 * @return The user reference associated with this request. If null is
 	 *	returned no user reference has been specified.
 	 * @see setUserReference()
@@ -2476,7 +2476,7 @@ class CardEaseXML_Request {
 	/**
 	 * Gets the reason for which a void request is being made. This is
 	 * mandatory for Void requests.
-	 * 
+	 *
 	 * @return The reason for which a void request is being made. If null
 	 *	is returned no void reason has been specified.
 	 * @see VoidReason
@@ -2492,7 +2492,7 @@ class CardEaseXML_Request {
 	 * issuer. The content of this is dependant upon the country in which
 	 * authorisation is being performed. This is an alphanumeric string. It
 	 * is optional.
-	 * 
+	 *
 	 * @return The zip code/post code details associated with the card in
 	 *	this request. If null is returned no zip code/post code has
 	 *	been specified.
@@ -2660,7 +2660,7 @@ class CardEaseXML_Request {
 	 * in which authorisation is being performed. Typically it is the
 	 * first line of the address where the card is registered. This is an
 	 * alphanumeric string. It is optional.
-	 * 
+	 *
 	 * @param address
 	 *	The address details associated with the card in this request.
 	 *	If this is null the address is removed.
@@ -2674,7 +2674,7 @@ class CardEaseXML_Request {
 	 * Sets the amount associated with this request. This may be in major
 	 * or minor units. For example 1.23 GBP (Major) == 123 GBP (Minor).
 	 * The amount is mandatory for Auth and Offline requests.
-	 * 
+	 *
 	 * @param amount
 	 *	The amount associated with this request.
 	 * @see getAmount()
@@ -2688,7 +2688,7 @@ class CardEaseXML_Request {
 	 * Sets the units in which the amount associated with this request is
 	 * specified. This may be Major or Minor. For example 1.23 GBP (Major)
 	 * == 123 GBP (Minor). The default is Minor.
-	 * 
+	 *
 	 * @param amountUnit
 	 *	The units in which the amount associated with this request is
 	 *	specified. If this is null the amount unit is removed.
@@ -2703,7 +2703,7 @@ class CardEaseXML_Request {
 	 * Sets whether an authorisation request is automatically confirmed
 	 * without a confirmation request. By default is is false, a
 	 * confirmation request will be required for this transaction.
-	 * 
+	 *
 	 * @param autoConfirm
 	 *	Whether an authorisation request is automatically confirmed
 	 *	without a confirmation request.
@@ -2732,7 +2732,7 @@ class CardEaseXML_Request {
 	 * during previous requests. This is an alphaumeric string with a fixed
 	 * length of 36 characters. This is mandatory for Conf, Refund and Void
 	 * requests.
-	 * 
+	 *
 	 * @param cardEaseReference
 	 *	The CardEaseXML reference associated with this request. If
 	 *	this is null the CardEase reference is removed.
@@ -2753,7 +2753,7 @@ class CardEaseXML_Request {
 	 * need not store actual card details on their system for repeat
 	 * transactions. This reduces the risk of card information being
 	 * compromised, and reduces the integrators PCI requirements.
-	 * 
+	 *
 	 * @param cardHash The card hash returned from a previous transaction
 	 *	that references the card details that should also be used for
 	 *	this transaction.
@@ -2808,7 +2808,7 @@ class CardEaseXML_Request {
 	 * not store actual card details on their system for repeat
 	 * transactions. This reduces the risk of card information being
 	 * compromised, and reduces the integrators PCI requirements.
-	 * 
+	 *
 	 * @param cardReference The card reference returned from a previous
 	 *	transaction that references the card details that should also
 	 *	be used for this transaction.
@@ -2832,7 +2832,7 @@ class CardEaseXML_Request {
 	 * signature strip.
 	 * <p>
 	 * On Amex this is the four digits printed above the PAN.
-	 * 
+	 *
 	 * @param csc
 	 *	The security code associated with the card in this request. If
 	 *	this is null the security code is removed.
@@ -2896,11 +2896,11 @@ class CardEaseXML_Request {
 	 * <td>Sweden, Krona</td>
 	 * </tr>
 	 * </table>
-	 * 
+	 *
 	 * @param currencyCode
 	 *	The ISO currency code or mnemonic associated with this request
 	 *	amount. If this is null the currency code is removed.
-	 * 
+	 *
 	 * @see getCurrencyCode()
 	 */
 	function setCurrencyCode($currencyCode) {
@@ -2930,7 +2930,7 @@ class CardEaseXML_Request {
 	function setDeliveryName($deliveryName) {
 		$this->m_deliveryName = $deliveryName;
 	}
-	
+
 	/**
 	 * Sets the delivery phone numbers.
 	 * The delivery phone numbers.
@@ -2944,7 +2944,7 @@ class CardEaseXML_Request {
 	 * is a character string with a maximum length of 10 characters.
 	 * This is mandatory for manual authorisation requests (such as Card
 	 * Not Present). This should match the expiry date format.
-	 * 
+	 *
 	 * @param expiryDate
 	 *	The expiry date associated with the card in this request. If
 	 *	this is null the expiry date is removed.
@@ -2992,7 +2992,7 @@ class CardEaseXML_Request {
 	 * <td>27</td>
 	 * </tr>
 	 * </table>
-	 * 
+	 *
 	 * @param expiryDateFormat
 	 *	The expiry date format associated with the card in this
 	 *	request. If this is null the expiry date format is removed.
@@ -3006,7 +3006,7 @@ class CardEaseXML_Request {
 
 	/**
 	 * Sets the list of extended properties associated with this request.
-	 * 
+	 *
 	 * @param extendedProperties The list of extended properties associated with this request.
 	 * @see addExtendedProperty
 	 * @see getExtendedProperties()
@@ -3017,7 +3017,7 @@ class CardEaseXML_Request {
 
 	/**
 	 * Sets whether an ICC fallback has occured. Default is false.
-	 * 
+	 *
 	 * @param iccFallback
 	 *	Whether an ICC fallback has occured.
 	 * @see getICCFallback()
@@ -3030,7 +3030,7 @@ class CardEaseXML_Request {
 	 * Sets the ICC management function associated with an ICCManagement
 	 * request. This must be set for an ICCManagement request. It is an
 	 * alphanumeric string.
-	 * 
+	 *
 	 * @param iccManagementFunction
 	 *	The ICC management function associated with an ICC Management
 	 *	request. If this is null the ICC management function is
@@ -3048,7 +3048,7 @@ class CardEaseXML_Request {
 	 * has an id, type and value. For example, a tag of
 	 * 0x9f02/AsciiHex/000000000100 is using to specify the transaction
 	 * amount. These are mandatory for an EMV transaction.
-	 * 
+	 *
 	 * @param iccTags
 	 *	The list of ICC tags associated with this request. If this is
 	 *	null the list of ICC tags is removed.
@@ -3067,7 +3067,7 @@ class CardEaseXML_Request {
 	 * is an alphanumeric string. This is mandatory for ICC authorisations
 	 * and by default is "EMV". An EMV transaction must have associated
 	 * ICC tags.
-	 * 
+	 *
 	 * @param iccType
 	 *	The type of ICC transaction associated with this request. If
 	 *	this is null the ICC type is removed.
@@ -3119,7 +3119,7 @@ class CardEaseXML_Request {
 	 * requirement for this is dependant upon the card scheme associated
 	 * with the card and must be exactly as found on the card (including
 	 * any leading 0's).
-	 * 
+	 *
 	 * @param issueNumber
 	 *	The issue number associated with the card in this request. If
 	 *	this is null the issue number is removed.
@@ -3134,7 +3134,7 @@ class CardEaseXML_Request {
 	 * mandatory if the TerminalID is a Master Terminal ID used to
 	 * represent multiple terminals. This is an alphanumeric string with a
 	 * maximum length of 50 characters.
-	 * 
+	 *
 	 * @param machineReference
 	 *	The machine reference associated with this request. If this is
 	 *	null the machine reference is removed.
@@ -3150,7 +3150,7 @@ class CardEaseXML_Request {
 	 * Sets the type of manual authorisation being used for this request.
 	 * By default this is "cnp" (i.e. Card Not Present). This is an
 	 * alphanumeric string. This is mandatory for manual authorisations.
-	 * 
+	 *
 	 * @param manualType
 	 *	The type of manual authorisation being used for this request.
 	 *	If this is null the manual type is removed.
@@ -3159,7 +3159,7 @@ class CardEaseXML_Request {
 	function setManualType($manualType) {
 		$this->m_manualType = $manualType;
 	}
-	
+
 	/**
 	 * Sets the date and/or time when the transaction was processed offline.
 	 * @param offlineDateTime The date and/or time when the transaction was processed offline.
@@ -3217,7 +3217,7 @@ class CardEaseXML_Request {
 	 * <td>22</td>
 	 * </tr>
 	 * </table>
-	 * 
+	 *
 	 * @param offlineDateTimeFormat The format of the date and/or time of the transaction if processed offline.
 	 * @see getOfflineDateTimeFormat()
 	 * @see getOfflineDateTime()
@@ -3229,7 +3229,7 @@ class CardEaseXML_Request {
 
 	/**
 	 * Gets the originating IP address of the request.  E.g. client browser.
-	 * 
+	 *
 	 * @param $originatingIPAddress The originating IP address of the request.
 	 * If this is null the originating IP address is removed.
 	 * @see getOriginatingIPAddress()
@@ -3244,7 +3244,7 @@ class CardEaseXML_Request {
 	 * characters and a maximum length of 19 characters. This is a
 	 * requirement for manual authorisation requests (such as Card Not
 	 * Present).
-	 * 
+	 *
 	 * @param pan
 	 *	The PAN (Primary Account Number) associated with the card in
 	 *	this request. If this is null the pan is removed.
@@ -3265,7 +3265,7 @@ class CardEaseXML_Request {
 	/**
 	 * Sets the type of this request. This can be Auth, Conf, Test and so
 	 * on. By default this is "Auth". This is mandatory for all requests.
-	 * 
+	 *
 	 * @param requestType
 	 *	The type of this request. If this is null the request type is
 	 *	removed.
@@ -3280,7 +3280,7 @@ class CardEaseXML_Request {
 	 * Sets the name of the software/firmware using the CardEaseXML SDK.
 	 * This is an alphanumeric string with a maximum length of 50
 	 * characters. This is mandatory for all requests.
-	 * 
+	 *
 	 * @param softwareName
 	 *	The name of the software/firmware using the CardEaseXML SDK.
 	 *	If this is null the software/firmware name is removed.
@@ -3294,7 +3294,7 @@ class CardEaseXML_Request {
 	 * Sets the version of the software/firmware using the CardEaseXML SDK.
 	 * This is an alphanumeric string with a maximum length of 20
 	 * characters. This is mandatory for all requests.
-	 * 
+	 *
 	 * @param softwareVersion
 	 *	The version of the software/firmware using the CardEaseXML
 	 *	SDK. If this is null the software/firmware version is removed.
@@ -3309,7 +3309,7 @@ class CardEaseXML_Request {
 	 * is a character string with a maximum length of 10 characters.
 	 * This is optional for manual authorisation requests (such as Card
 	 * Not Present). This should match the start date format.
-	 * 
+	 *
 	 * @param startDate
 	 *	The start date associated with the card in this request. If
 	 *	this is null the start date is removed.
@@ -3357,7 +3357,7 @@ class CardEaseXML_Request {
 	 * <td>27</td>
 	 * </tr>
 	 * </table>
-	 * 
+	 *
 	 * @param startDateFormat
 	 *	The start date format associated with the card in this
 	 *	request. If this is null the start date format is removed.
@@ -3377,7 +3377,7 @@ class CardEaseXML_Request {
 	 * CreditCall Communications. It is unique across all CardEase
 	 * products. It is a numeric string with a fixed length of 8
 	 * characters.
-	 * 
+	 *
 	 * @param terminalID
 	 *	The terminal ID associated with the machine performing this
 	 *	request. If this is null the terminal ID is removed.
@@ -3391,7 +3391,7 @@ class CardEaseXML_Request {
 	 * Sets the track 1 associated with the card in a magnetic stripe
 	 * authorisation. This is an alphanumeric string with a maximum length
 	 * of 79 characters. This is optional.
-	 * 
+	 *
 	 * @param track1
 	 *	The track 1 associated with the card in a magnetic stripe
 	 *	authorisation. If this is null the track 1 is removed.
@@ -3407,7 +3407,7 @@ class CardEaseXML_Request {
 	 * of 40 characters. This should include start and end sentinels (and
 	 * separator character if provided). It is mandatory for magnetic
 	 * stripe authorisation.
-	 * 
+	 *
 	 * @param track2
 	 *	The track 2 associated with the card in a magnetic stripe
 	 *	authorisation. If this is null the track 2 is removed.
@@ -3421,7 +3421,7 @@ class CardEaseXML_Request {
 	 * Sets the track 3 associated with the card in a magnetic stripe
 	 * authorisation. This is an alphanumeric string with a maximum length
 	 * of 107 characters. This is optional.
-	 * 
+	 *
 	 * @param track3
 	 *	The track 3 associated with the card in a magnetic stripe
 	 *	authorisation. If this is null the track 3 is removed.
@@ -3437,7 +3437,7 @@ class CardEaseXML_Request {
 	 * Communications for a terminal or number of terminals. It must be in
 	 * exactly the same case as provided by CreditCall. This is an
 	 * alphanumeric string with a maximum length of 20 characters.
-	 * 
+	 *
 	 * @param transactionKey
 	 *	The transaction key associated with this request. If this is
 	 *	null the transaction key is removed.
@@ -3452,7 +3452,7 @@ class CardEaseXML_Request {
 	 * user to attach their own reference against a request. This is an
 	 * alphanumeric string with a maximum length of 50 characters. This is
 	 * optional for all requests.
-	 * 
+	 *
 	 * @param userReference
 	 *	The user reference associated with this request. If this is
 	 *	null the user reference is removed.
@@ -3465,7 +3465,7 @@ class CardEaseXML_Request {
 	/**
 	 * Sets the reason for which a void request is being made. This is
 	 * mandatory for Void requests.
-	 * 
+	 *
 	 * @param voidReason
 	 *	The reason for which a void request is being made. If this is
 	 *	null the void reason is removed.
@@ -3482,7 +3482,7 @@ class CardEaseXML_Request {
 	 * issuer. The content of this is dependant upon the country in which
 	 * authorisation is being performed. This is an alphanumeric string.
 	 * It is optional.
-	 * 
+	 *
 	 * @param zipCode
 	 *	The zip code/post code details associated with the card in
 	 *	this request. If this is null the zip code is removed.
@@ -3494,7 +3494,7 @@ class CardEaseXML_Request {
 
 	/**
 	 * Gets a string version of this requests details.
-	 * 
+	 *
 	 * @return A string version of this requests details.
 	 */
 	function toString() {
@@ -3513,170 +3513,170 @@ class CardEaseXML_Request {
 		$str .= $this->m_3DSecureECI;
 		$str .= $eol;
 		$str .= "3DSecureIAV";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_3DSecureIAV;
-		$str .= $eol;			
+		$str .= $eol;
 		$str .= "3DSecureIAVAlgorithm";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_3DSecureIAVAlgorithm;
 		$str .= $eol;
 		$str .= "3DSecureIAVFormat";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_3DSecureIAVFormat;
 		$str .= $eol;
 		$str .= "3DSecureTransactionStatus";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_3DSecureTransactionStatus;
 		$str .= $eol;
 		$str .= "3DSecureXID";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_3DSecureXID;
 		$str .= $eol;
 		$str .= "3DSecureXIDFormat";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_3DSecureXIDFormat;
 		$str .= $eol;
 		$str .= "Address";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_address;
 		$str .= $eol;
 		$str .= "Amount";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_amount;
 		$str .= $eol;
 		$str .= "AmountUnit";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_amountUnit;
 		$str .= $eol;
 		$str .= "AutoConfirm";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_autoConfirm;
 		$str .= $eol;
 		$str .= "BatchReference";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_batchReference;
 		$str .= $eol;
 		$str .= "CardEaseReference";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_cardEaseReference;
 		$str .= $eol;
 		$str .= "CardHash";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_cardHash;
 		$str .= $eol;
 		$str .= "CardReference";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_cardReference;
 		$str .= $eol;
 		$str .= "CSC";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_csc;
 		$str .= $eol;
 		$str .= "CurrencyCode";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_currencyCode;
 		$str .= $eol;
 		$str .= "ExpiryDate";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_expiryDate;
 		$str .= $eol;
 		$str .= "ExpiryDateFormat";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_expiryDateFormat;
 		$str .= $eol;
 		$str .= "ExtendedProperties";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= print_r($this->m_extendedProperties, true);
 		$str .= $eol;
 		$str .= "ICCFallback";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_iccFallback;
 		$str .= $eol;
 		$str .= "ICCManagementFunction";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_iccManagementFunction;
 		$str .= $eol;
 		$str .= "ICCTags";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= print_r($this->m_iccTags, true);
 		$str .= $eol;
 		$str .= "ICCType";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_iccType;
 		$str .= $eol;
 		$str .= "IssueNumber";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_issueNumber;
 		$str .= $eol;
 		$str .= "MachineReference";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_machineReference;
 		$str .= $eol;
 		$str .= "ManualType";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_manualType;
 		$str .= $eol;
 		$str .= "OriginatingIPAddress";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_originatingIPAddress;
 		$str .= $eol;
 		$str .= "PAN";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_pan;
 		$str .= $eol;
 		$str .= "RequestType";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_requestType;
 		$str .= $eol;
 		$str .= "SoftwareName";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_softwareName;
 		$str .= $eol;
 		$str .= "SoftwareVersion";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_softwareVersion;
 		$str .= $eol;
 		$str .= "StartDate";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_startDate;
 		$str .= $eol;
 		$str .= "StartDateFormat";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_startDateFormat;
 		$str .= $eol;
 		$str .= "TerminalID";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_terminalID;
 		$str .= $eol;
 		$str .= "Track1";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_track1;
 		$str .= $eol;
 		$str .= "Track2";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_track2;
 		$str .= $eol;
 		$str .= "Track3";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_track3;
 		$str .= $eol;
 		$str .= "TransactionKey";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_transactionKey;
 		$str .= $eol;
 		$str .= "UserReference";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_userReference;
 		$str .= $eol;
 		$str .= "VoidReason";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_voidReason;
 		$str .= $eol;
 		$str .= "ZipCode";
-		$str .= $sep; 
+		$str .= $sep;
 		$str .= $this->m_zipCode;
 		$str .= $eol;
-		
+
 		return $str;
 	}
 
@@ -3684,7 +3684,7 @@ class CardEaseXML_Request {
 	 * Validates the information held in this request to ensure that it is
 	 * suitable for processing. This is called before a request is
 	 * processed and can also be used for testing purposes.
-	 * 
+	 *
 	 * @throws E_USER_ERROR
 	 *	If the information held in this request is not suitable for
 	 *	processing.
@@ -3716,10 +3716,10 @@ class CardEaseXML_Request {
 				}
 			}
 
-			if ($this->m_3DSecureIAV !== null || $this->m_3DSecureIAVAlgorithm !== null) { 
+			if ($this->m_3DSecureIAV !== null || $this->m_3DSecureIAVAlgorithm !== null) {
 
-				if ($this->m_3DSecureIAV === null || $this->m_3DSecureIAVAlgorithm === null) { 
-					trigger_error("CardEaseXMLRequest: 3DSecureIAV must be set with 3DSecureIAVAlgorithm", E_USER_ERROR); 
+				if ($this->m_3DSecureIAV === null || $this->m_3DSecureIAVAlgorithm === null) {
+					trigger_error("CardEaseXMLRequest: 3DSecureIAV must be set with 3DSecureIAVAlgorithm", E_USER_ERROR);
 				}
 
 				if (!ctype_digit((string)$this->m_3DSecureIAVAlgorithm)) {
@@ -3813,7 +3813,7 @@ class CardEaseXML_Request {
 				trigger_error("CardEaseXMLRequest: ExpiryDateFormat has an invalid format", E_USER_ERROR);
 			} else {
 				for ($i = 0; $i < strlen($this->m_expiryDateFormat); $i++) {
-					if (!$this->isValidDateTimeFormatCharacter($this->m_expiryDateFormat{$i})) {
+					if (!$this->isValidDateTimeFormatCharacter($this->m_expiryDateFormat[$i])) {
 						// ExpiryDateFormat has invalid chars
 						trigger_error("CardEaseXMLRequest: ExpiryDateFormat has an invalid format", E_USER_ERROR);
 					}
@@ -3837,7 +3837,7 @@ class CardEaseXML_Request {
 				trigger_error("CardEaseXMLRequest: ExpiryDateFormat has an invalid format", E_USER_ERROR);
 			} else {
 				for ($i = 0; $i < strlen($this->m_expiryDateFormat); $i++) {
-					if (!$this->isValidDateTimeFormatCharacter($this->m_expiryDateFormat{$i})) {
+					if (!$this->isValidDateTimeFormatCharacter($this->m_expiryDateFormat[$i])) {
 						// ExpiryDateFormat has invalid chars
 						trigger_error("CardEaseXMLRequest: ExpiryDateFormat has an invalid format", E_USER_ERROR);
 					}
@@ -3861,7 +3861,7 @@ class CardEaseXML_Request {
 				trigger_error("CardEaseXMLRequest: StartDateFormat has an invalid format", E_USER_ERROR);
 			} else {
 				for ($i = 0; $i < strlen($this->m_startDateFormat); $i++) {
-					if (!$this->isValidDateTimeFormatCharacter($this->m_startDateFormat{$i})) {
+					if (!$this->isValidDateTimeFormatCharacter($this->m_startDateFormat[$i])) {
 						// StartDateFormat has invalid chars
 						trigger_error("CardEaseXMLRequest: StartDateFormat has an invalid format", E_USER_ERROR);
 					}
@@ -4017,11 +4017,11 @@ class CardEaseXML_Request {
 						// PAN failed LuhnCheck and/or contains non digits
 						trigger_error("CardEaseXMLRequest: PAN has an invalid format", E_USER_ERROR);
 					}
-	
+
 					if ($this->m_expiryDate === null) {
 						trigger_error("CardEaseXMLRequest: ExpiryDate must be specified for manual card details", E_USER_ERROR);
 					}
-	
+
 					if ($this->m_expiryDateFormat === null) {
 						trigger_error("CardEaseXMLRequest: ExpiryDateFormat must be specified for manual card details", E_USER_ERROR);
 					}
@@ -4079,9 +4079,9 @@ class CardEaseXML_Request {
 				if ($this->m_track2 !== null) {
 					if (strlen($this->m_track2) === 0 || strlen($this->m_track2) > TRACK2_MAX_LENGTH) {
 						trigger_error("CardEaseXMLRequest: Track2 has an invalid format", E_USER_ERROR);
-					} else if ($this->m_track2{0} !== TRACK2_START_SENTINEL) // check start sentinel
+					} else if ($this->m_track2[0] !== TRACK2_START_SENTINEL) // check start sentinel
 						trigger_error("CardEaseXMLRequest: Track2 has an invalid format", E_USER_ERROR);
-					} else if ($this->m_track2{strlen($this->m_track2) - 1} !== TRACK2_END_SENTINEL) { // check end sentinel
+					} else if ($this->m_track2[strlen($this->m_track2) - 1] !== TRACK2_END_SENTINEL) { // check end sentinel
 						trigger_error("CardEaseXMLRequest: Track2 has an invalid format", E_USER_ERROR);
 					}
 				}
@@ -4119,7 +4119,7 @@ class CardEaseXML_Request {
 	/**
 	 * Determines whether an amount is valid.
 	 * <p>
-	 * Accepts 1 1. 1.1 .1 
+	 * Accepts 1 1. 1.1 .1
 	 * @param amount The amount to validate.
 	 * @return If the amount is valid.
 	 */
@@ -4133,7 +4133,7 @@ class CardEaseXML_Request {
      * @returns If the email address is valid.
      */
     function isValidEmailAddress($emailAddress)
-    {           
+    {
         $qtext = "[^\\x0d\\x22\\x5c\\x80-\\xff]";
         $dtext = "[^\\x0d\\x5b-\\x5d\\x80-\\xff]";
         $atom = "[^\\x00-\\x20\\x22\\x28\\x29\\x2c\\x2e\\x3a-\\x3c\\x3e\\x40\\x5b-\\x5d\\x7f-\\xff]+";
@@ -4165,7 +4165,7 @@ class CardEaseXML_Request {
 
 		$nSum = 0;
 		for ($nPos = strlen($pan) - 1, $nMultiple = 0; $nPos >= 0; $nPos--, $nMultiple ^= 1) {
-			$nProduct = $pan{$nPos} * ($nMultiple + 1);
+			$nProduct = $pan[$nPos] * ($nMultiple + 1);
 			$nSum += (($nProduct > 9) ? $nProduct - 9 : $nProduct);
 		}
 		return (($nSum % 10) === 0);
